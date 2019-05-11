@@ -3,8 +3,8 @@ html,ccs,javascript
 
 Environment
 --------
--os: mac 10.14.4
--tool: visual studio code
+<p>-os: mac 10.14.4</p>
+<p>-tool: visual studio code</p>
 
 
 #assignment3
