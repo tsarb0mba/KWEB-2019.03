@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>kweb 5주차 과제<br>2018320211 진지과</p>
+    <script>
+        console.log("Welcome to the KWEB Cafe!\nWrite 'action(n)' to choose your action.\nex) anction(2)");
+        console.log("1.to order\n2.check amount\n3.finish\n******************************");
+        let x;
+        var ary=[];
+
+        ary.push({menu:'Ice Americano', price: 1500, amount:100});
+        ary.push({menu:'Hot Americano', price: 1500, amount:100});
+        ary.push({menu:'Caffe Latte', price: 2000, amount:100});
+        ary.push({menu:'Cold Brew', price: 3000, amount: 47});
+        ary.push({menu:'Milk Tea', price:2500, amount: 50});
+        ary.push({menu:'Einspanner', price:4000, amount:30});
+        
+        const action=(x)=>{
+            if(x===1){
+                for(var k in ary){   
+                    console.log(ary[k].menu+": "+ary[k].price);
+                }
+                console.log("Wirte 'order(menu,amount)' to choose your action.\nex) order('Ice Americano',3)");
+            }
+            else if(x===2){
+                for(var k in ary){
+                    console.log(ary[k].menu+": "+ary[k].amount)
+                }
+            }
+            else if(x===3){
+                console.log("Bye");
+            }
+        }
+        const order=(od_m,od_a)=>{
+            let d=new Date();
+            var a=0;
+            while(1){
+                 for(var k in ary){
+                    if(ary[k].menu==od_m){
+                       if(ary[k].amount>=od_a) {
+                            console.log("<Receipt>\nOrder Time:"+d);
+                            console.log(od_m+":"+od_a);
+                            ary[k].amount-=od_a;
+                        }
+                         else if(ary[k].amount<od_a) console.log("Sorry, there are not enought "+od_m+":(\nHow about to try another drink today?");
+                         return 1;
+                    }
+                 }
+                   console.log("Oops, sorry, our shop doesn't sell "+od_m+":( \nHow about to try another drink today? XD");
+                   break;
+                }
+            }        
+    </script>
+</body>
+</html>
