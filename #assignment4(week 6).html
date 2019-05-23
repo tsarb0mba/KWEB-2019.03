@@ -28,7 +28,7 @@
 <body>
     <div id="main_title"> <h1>구구단</h1></div>
     <div class="content">
-        <input type="number" id="input" min="1" max="9"></input>
+       <input type="text" id="input" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input>
         <button onclick="mul_table()" >Try it</button>
     </div>
     <p id="name"><br>[KEWB 준스 6주차]2018320211 진지과</p>
@@ -37,22 +37,21 @@
     
     <script>
         function mul_table(){
-            var x=document.getElementById("input").value;
-            if(x>9){
-                alert("잘못된 입력입니다.")
-            }
-            else{
-                alert(x+" * 1 = "+x*1+"\n"+
-                      x+" * 2 = "+x*2+"\n"+
-                      x+" * 3 = "+x*3+"\n"+
-                      x+" * 4 = "+x*4+"\n"+
-                      x+" * 5 = "+x*5+"\n"+
-                      x+" * 6 = "+x*6+"\n"+
-                      x+" * 7 = "+x*7+"\n"+
-                      x+" * 8 = "+x*8+"\n"+
-                      x+" * 9 = "+x*9+"\n"
+            var y=document.getElementById("input").value;
+            var x=y.replace(/(^0+)/,"");
+            if(x=="") x=0;
+            
+            alert(x+" * 1 = "+x*1+"\n"+
+                  x+" * 2 = "+x*2+"\n"+
+                  x+" * 3 = "+x*3+"\n"+
+                  x+" * 4 = "+x*4+"\n"+
+                  x+" * 5 = "+x*5+"\n"+
+                  x+" * 6 = "+x*6+"\n"+
+                  x+" * 7 = "+x*7+"\n"+
+                  x+" * 8 = "+x*8+"\n"+
+                  x+" * 9 = "+x*9+"\n"
                 )
-            }
+            
         }
 
     </script>
