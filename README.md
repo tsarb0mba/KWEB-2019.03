@@ -14,3 +14,7 @@ Environment
 #assignment4  (2019.05.17)
 --------
 <img width="583" alt="스크린샷 2019-05-17 오후 3 03 21" src="https://user-images.githubusercontent.com/44959242/57906444-f5839b00-78b4-11e9-99bb-4b369f5a0758.png">
+
+#assignment4 extended version (2018.05.28)
+--------
+<img width="663" alt="스크린샷 2019-05-28 오후 8 51 06" src="https://user-images.githubusercontent.com/44959242/58475963-6024b880-818a-11e9-9226-d461d38cdbb4.png">
