@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[KEWB 준스 6주차] 2018320211 진지과</title>
+    <style>
+        #main_title{
+            display: flex; 
+            justify-content: center;
+        }
+        .content{
+            display: flex;
+            justify-content: center;
+        }
+        #input{
+            width:50px;
+        }
+        #name{
+            display:flex;
+            justify-content: center;
+            font-size:10px;
+            color:gray;
+        }
+        #show{
+            display:text;
+            text-align: center;
+            font-size:12px;
+            color:#2E2E2E;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_title"> <h1>구구단</h1></div>
+    <div class="content">
+       <input type="text" id="input" onkeypress='return event.charCode >= 48 && event.charCode <= 57'></input>
+        <button onclick="mul_table_alert()" >show in alert</button>
+        <button onclick="mul_table_html()">show in html</button>
+        <button onclick="reset()">reset</button>
+    </div>
+    <p id="show">if you click 'show in html' the result will show in here!</p>
+    <p id="name"><br>[KEWB 준스 6주차]2018320211 진지과</p>
+
+    
+    
+    <script>
+        function mul_table_alert(){
+            var y=document.getElementById("input").value;
+            var x=y.replace(/(^0+)/,"");
+            if(x=="") x=0;
+            
+            alert(x+" * 1 = "+x*1+"\n"+
+                  x+" * 2 = "+x*2+"\n"+
+                  x+" * 3 = "+x*3+"\n"+
+                  x+" * 4 = "+x*4+"\n"+
+                  x+" * 5 = "+x*5+"\n"+
+                  x+" * 6 = "+x*6+"\n"+
+                  x+" * 7 = "+x*7+"\n"+
+                  x+" * 8 = "+x*8+"\n"+
+                  x+" * 9 = "+x*9+"\n"
+                )  
+        }
+        function mul_table_html(){
+            var y=document.getElementById("input").value;
+            var x=y.replace(/(^0+)/,"");
+            if(x=="") x=0;
+
+           document.getElementById("show").innerHTML="<br>"+
+                                                     x+" * 1 = "+x*1+"<br>"+
+                                                     x+" * 2 = "+x*2+"<br>"+
+                                                     x+" * 3 = "+x*3+"<br>"+
+                                                     x+" * 4 = "+x*4+"<br>"+
+                                                     x+" * 5 = "+x*5+"<br>"+
+                                                     x+" * 6 = "+x*6+"<br>"+
+                                                     x+" * 7 = "+x*7+"<br>"+
+                                                     x+" * 8 = "+x*8+"<br>"+
+                                                     x+" * 9 = "+x*9;
+        }
+
+        function reset(){
+            document.getElementById("show").innerHTML="Reset successfully!<br>If you click 'show in html' the result will show in here!";
+        }
+
+    </script>
+</body>
+</html>
