@@ -21,6 +21,15 @@ Environment
 
 #assignment_final (2019.06.05)
 --------
-<img width="534" alt="스크린샷 2019-06-05 오후 12 12 52" src="https://user-images.githubusercontent.com/44959242/58927885-505d3380-878b-11e9-8769-263b8c7b7ffb.png">
+
 <img width="535" alt="스크린샷 2019-06-05 오후 12 12 45" src="https://user-images.githubusercontent.com/44959242/58927883-505d3380-878b-11e9-9a79-943f98c44687.png">
-base on https://github.com/byungjur96/KWEB_Catch_Number
+<img width="534" alt="스크린샷 2019-06-05 오후 12 12 52" src="https://user-images.githubusercontent.com/44959242/58927885-505d3380-878b-11e9-8769-263b8c7b7ffb.png">
+
+<p>base on https://github.com/byungjur96/KWEB_Catch_Number<p>
+<div>
+  <p>06.05<br>
+      >time counter<br>
+      >time reset<br>
+  </p>
+</div>
+
