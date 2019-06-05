@@ -27,9 +27,8 @@ Environment
 
 <p>base on https://github.com/byungjur96/KWEB_Catch_Number<p>
 <div>
-  <p>06.05<br>
-      >time counter<br>
-      >time reset<br>
-  </p>
+  <p>06.05<\p>
+  <p> >time counter<\p>
+  <p> >time reset<\p>
 </div>
 
