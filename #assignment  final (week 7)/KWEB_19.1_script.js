@@ -5,6 +5,7 @@ let flag = false;	//판이 다 섞였는지를 체크하는 변수
 let scoreBoard = []; // 최고 
 let timer = setInterval(start_timer,1000); // 타이머
 let time_switch=1;
+let score=0;
 // 타이머를 시작하는 함수
 
 function start_timer(){
@@ -13,17 +14,20 @@ function start_timer(){
         sec++;
     }
     else if(time_switch===0){
-        stop_timer();
-        sec=0;
+        score_sec=sec;
+        score++;
+        
     }
 }
 
 function stop_timer(){
-        clearIntervar(timer);
+        time_switch=0;
+        alert(score+"위"+socre_sec+"second");
+        sec=0;  
 }
 
 /*main 함수*/
-window.onload = function main(){
+function main(){
     init();	//처음에 판을 초기화
     shuffle(25,0,0);	//총 25번 shuffle
 }
@@ -42,6 +46,9 @@ function init(){
     /*만들어진 버튼에 클릭 이벤트 추가*/
     let btns = document.getElementsByClassName("btn");
     for(let i=0;i<max;i++) {
+        var change=Math.floor(Math.random() * 25) + 1;
+        swap(i,change);
+
         btns[i].addEventListener("click", function(event){
             btnClick(event.target);	//인자로 현재 눌러진 버튼을 넘겨주는 btnClick함수 호출
         });
@@ -50,59 +57,39 @@ function init(){
     start_timer();
 }
 
+function swap(index1,index2){
+    let btns=document.getElementsByClassName("btn");
+    var swap=btns[index1].value;
+    btns[index1].value=btns[index2].value;
+    btns[index2].value=swap;
+}
 function reset() {
     sec=0;
+;
 }
 
-/*버튼 클릭 이벤트 핸들러*/
+
 function btnClick(btn){
     /*찾아야 하는 버튼을 제대로 클릭했을시 동작*/
-    if(parseInt(btn.value) === current){
+    if(parseInt(btn.value) === current){//
+        document.getElementById("current").innerHTML=current;
         btn.value = " ";
         btn.style.backgroundColor = "#CCC";
 
         /*만약 현재 찾아야 하는 숫자가 마지막 숫자였다면 게임 클리어*/
-        if(current === max){
-            // 코드를 완성하세요.
+        if(current === 25){
+            stop_timer();
+            sec=0; 
+            time_switch=1;
         }
 
         /*그 외엔 current값 증가시켜주고 표시*/
         else{
-            // 코드를 완성하세요.
+            current++;
         }
     }
 }
 
-/*
-두 버튼의 값을 바꾸는 함수
-prev1, prev2 : 이전에 섞었던 두 button의 index
-*/
-function shuffle(no_of_random_mix,prev1,prev2){
-    let btns = document.getElementsByClassName("btn");
-
-    /* red로 바꿨던 button들 다시 하얗게 바꿔준다. */
-    btns[prev1].style.backgroundColor = "white";
-    btns[prev2].style.backgroundColor = "white";
-
-    /*반복 횟수 남아있으면 shuffle*/
-    if(no_of_random_mix>0){
-        // 코드를 완성하세요.
-
-        /*SWAP한 두 버튼 표시*/
-        btns[index1].style.backgroundColor = "red";
-        btns[index2].style.backgroundColor = "red";
-
-        /*반복횟수 하나 줄인다음 shuffle 재귀 호출*/
-        no_of_random_mix--;
-        setTimeout(function(){
-            shuffle(no_of_random_mix,index1, index2);
-        },100);
-    }
-
-    else{
-        // 코드를 완성하세요.
-    }
-}
 
 /*
 LeaderBoard에 점수를 추가하는 함수
