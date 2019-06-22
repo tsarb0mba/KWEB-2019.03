@@ -55,7 +55,7 @@ header {
 /* Game 파트 끝 */
 
 /* Score Board */
-#score-board {
+#score_board {
     height: fit-content;
     flex: 1;
     display: flex;

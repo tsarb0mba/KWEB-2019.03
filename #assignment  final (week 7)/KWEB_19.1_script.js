@@ -3,9 +3,12 @@ let sec = 0;	//게임 진행 시간
 let current = 1;	//현재 찾아야 할 번호
 let flag = false;	//판이 다 섞였는지를 체크하는 변수
 let scoreBoard = []; // 최고 
-let timer = setInterval(start_timer,1000); // 타이머
 let time_switch=1;
 let score=0;
+var score_list=new Array();
+let timer = setInterval(start_timer,1000);
+hall=document.getElementById("hall");
+
 // 타이머를 시작하는 함수
 
 function start_timer(){
@@ -13,27 +16,19 @@ function start_timer(){
         document.getElementById("time").innerHTML=sec;
         sec++;
     }
-    else if(time_switch===0){
-        score_sec=sec;
-        score++;
-        
-    }
 }
 
 function stop_timer(){
-        time_switch=0;
-        alert(score+"위"+socre_sec+"second");
-        sec=0;  
+        clearInterval(timer);
+        alert("clear!");
+        score_sec=sec;
+        sort(score_sec);
 }
 
-/*main 함수*/
-function main(){
-    init();	//처음에 판을 초기화
-    shuffle(25,0,0);	//총 25번 shuffle
-}
 
 /*버튼 만들고 클릭이벤트 추가함수*/
-function init(){
+window.onload=function init(){
+
     let board = document.getElementById("board");
 
     /*max개의 버튼을 만드는 for문*/
@@ -54,6 +49,7 @@ function init(){
         });
     }
 
+    time_switch=1;
     start_timer();
 }
 
@@ -63,10 +59,7 @@ function swap(index1,index2){
     btns[index1].value=btns[index2].value;
     btns[index2].value=swap;
 }
-function reset() {
-    sec=0;
-;
-}
+
 
 
 function btnClick(btn){
@@ -79,8 +72,6 @@ function btnClick(btn){
         /*만약 현재 찾아야 하는 숫자가 마지막 숫자였다면 게임 클리어*/
         if(current === 25){
             stop_timer();
-            sec=0; 
-            time_switch=1;
         }
 
         /*그 외엔 current값 증가시켜주고 표시*/
@@ -94,6 +85,44 @@ function btnClick(btn){
 /*
 LeaderBoard에 점수를 추가하는 함수
 */
-function leaderBoard(value) {
-    // 코드를 완성하세요.
+function leader_board(score_list) {
+    for(let i=0;i<=score;i++){
+        if(i==0)
+            hall.innerHTML="<input type='text' value='"+(i+1)+"위     "+score_list[i]+"초'></input><br>";
+         else 
+            hall.innerHTML+="<input type='text' value='"+(i+1)+"위     "+score_list[i]+"초'></input><br>";
+    }
 }
+
+function sort(new_score_sec){
+    score_list[score]=new_score_sec;
+    score_list.sort(function(a, b) {
+        return a - b;});
+    leader_board(score_list);
+    score++;
+}
+
+function reset(){
+    sec=0;
+    document.getElementById("time").innerHTML=sec;
+
+    current=1;
+    document.getElementById("current").innerHTML=current;
+    
+    let btns=document.getElementsByClassName("btn");
+    for(let i=0;i<max;i++) {
+        btns[i].style.backgroundColor = "#ffffff";
+        btns[i].value=i+1;
+    }
+    for(let i=0;i<max;i++){
+        var change=Math.floor(Math.random() * 25) + 1;
+        swap(i,change);
+    }
+    
+    
+    timer = setInterval(start_timer,1000);
+    time_switch=1;
+    start_timer();
+}
+  
+  
